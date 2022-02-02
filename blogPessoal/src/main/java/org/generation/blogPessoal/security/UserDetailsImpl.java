@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDetailsImpl implements UserDetails {
 	
+	//serialVersionUID é para controle interno
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;
@@ -29,7 +30,7 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return password;
+		return password; //implementando método segundo as politícas do UserDetails
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return true;
+		return true; //retorna isso pelas boas práticas
 	}
 
 	@Override

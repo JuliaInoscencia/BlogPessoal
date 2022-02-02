@@ -29,12 +29,12 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-		http.authorizeRequests().antMatchers("/usuarios/logar").permitAll()
+		http.authorizeRequests().antMatchers("/usuarios/logar").permitAll() //libera endpoints para que não seja preciso acessá-los com Token
 		.antMatchers("/usuarios/cadastrar").permitAll()
-		.anyRequest().authenticated()
-		.and().httpBasic()
-		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		.and().cors()
-		.and().csrf().disable();
+		.anyRequest().authenticated() //todas as outras requesições precisaram de autenticação
+		.and().httpBasic() //utiliza o padrão Basic para gerar o Token
+		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //indica o tipo de sessão que será utilizada. Stateless não guarda nenhuma sessão -> API Rest tem que ser assim
+		.and().cors() //habilita o cors -> Cross-Origin Resource Sharing
+		.and().csrf().disable(); // desabilita o Cross-site request forgery um dos ataques mais comuns da Web
 	}
 }
