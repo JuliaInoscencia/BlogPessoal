@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import org.generation.blogPessoal.model.Usuario;
 import org.generation.blogPessoal.service.UsuarioService;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
